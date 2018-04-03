@@ -2,8 +2,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// background-color: rgb(100, 100, 100);
 const Base = styled.div`
-  background-color: rgb(100, 100, 100);
+
   border: 1px solid rgb(75, 75, 75);
   border-left-width: 5px;
   border-radius: 3px;
@@ -34,28 +35,37 @@ const Goal = Base.extend`
   margin: 20px 0;
   padding: 20px;
 `
-
+// background-color: #3a84e0;
 const Info = Base.extend`
-  background-color: #3a84e0;
+
   border-left-color: #127fe1;
   margin: 20px 0;
   padding: 20px;
 `
 
-const Callout = ({ danger, warning, goal, info, title, children }) => {
+const CiteWrapper = styled.div`
+  text-align: right;
+`
+const Cite = styled.cite`
 
+`
+
+const Callout = ({ danger, warning, goal, info, title, children, cite }) => {
+  console.log('cite', cite)
+  const renderCite = cite ? <CiteWrapper><Cite>{cite}</Cite></CiteWrapper> : null
+  console.log('renderCite', renderCite)
   const renderCallout = () => {
     switch (true) {
       case danger:
-        return <Danger>{children}</Danger>
+        return <Danger>{children} {renderCite}</Danger>
       case warning:
-        return <Warning>{children}</Warning>
+        return <Warning>{children} {renderCite}</Warning>
       case goal:
-        return <Goal>{children}</Goal>
+        return <Goal>{children} {renderCite}</Goal>
       case info:
-        return <Info>{children}</Info>
+        return <Info>{children} {renderCite}</Info>
       default:
-        return <Base>{children}</Base>
+        return <Base>{children} {renderCite}</Base>
     }
   }
 
