@@ -77,7 +77,7 @@ const ReduxFlowTbl = () => {
           <TD><Pre
             language='js'
             code={[
-              "export const userReducer = ({ type, payload }) => {",
+              "export const userReducer = (state, { type, payload }) => {",
               "  switch (type) {",
               "    case 'updateUser':",
               "      // create new state code here then",
@@ -92,7 +92,12 @@ const ReduxFlowTbl = () => {
             ]}
               />
           </TD>
-          <TD>Reducers are the only part of your code that can (should) change state. Reducers get passed state. A reducer can change state or return the existing state. Reducers must be 'pure' functions. <b>Do not mutate state. Return a new object.</b></TD>
+          <TD>Reducers are the only part of your code that can change state. Reducers get passed state. A reducer can return a new state or the existing state. Reducers must be 'pure' functions. <b>Do not mutate state.</b></TD>
+        </TR>
+        <TR>
+          <TD>fn(subscribe(fn(listener))</TD>
+          <TD><Code code='unsubscribe = store.subscribe(handleSubmitClick)' /></TD>
+          <TD><Code code='subscribe()' /> takes a callback (i.e., function). The function will be called each time state changes. <Code code='subscribe()' /> returns a function that can be used to unsubscribe.</TD>
         </TR>
         <TR>
           <TD>State</TD>

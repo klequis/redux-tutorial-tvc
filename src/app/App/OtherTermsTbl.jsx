@@ -26,12 +26,6 @@ const OtherTermsTbl = (props) => {
               <TD>redux-thunk</TD>
               <TD>Middleware is functions you can write that called after dispatch and before reducers. Middleware can do whatever you need it to, but is typically use to transform or retrieve data.</TD>
             </TR>
-
-            <TR>
-              <TD>fn(subscribe(fn(listener))</TD>
-              <TD><Code code='unsubscribe = store.subscribe(handleSubmitClick)' /></TD>
-              <TD><Code code='subscribe()' /> takes a callback (i.e., function). The function will be called each time state changes. <Code code='subscribe()' /> returns a function that can be used to unsubscribe.</TD>
-            </TR>
             <TR>
               <TD><Code code='store.combineReducers()' /></TD>
               <TD>
