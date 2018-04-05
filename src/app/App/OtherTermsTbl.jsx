@@ -33,7 +33,7 @@ const OtherTermsTbl = (props) => {
               <TD><Code code='subscribe()' /> takes a callback (i.e., function). The function will be called each time state changes. <Code code='subscribe()' /> returns a function that can be used to unsubscribe.</TD>
             </TR>
             <TR>
-              <TD><Code code='store.combineReducers(rootReducer)' /></TD>
+              <TD><Code code='store.combineReducers()' /></TD>
               <TD>
                 <Pre
                   language='js'
@@ -49,12 +49,12 @@ const OtherTermsTbl = (props) => {
             <TR>
               <TD><Code code="createStore(reducer, [preloadedState], [enhancer])" /></TD>
               <TD><Code code="createStore(rootReducer)" /> </TD>
-              <TD>A method that creates the store</TD>
+              <TD>A method that creates the store.</TD>
             </TR>
             <TR>
               <TD><Code code="store.getState()" /></TD>
               <TD><Code code="store.getState()" /> </TD>
-              <TD>Returnes the complete store.</TD>
+              <TD>Returns the complete state.</TD>
             </TR>
           </Table>
         </Section>

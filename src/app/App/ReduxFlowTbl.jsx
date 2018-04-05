@@ -55,7 +55,7 @@ const ReduxFlowTbl = () => {
           <TD><Pre
             language='js'
             code={[
-              "export const updateUser = () => {",
+              "export const updateUser = (data) => {",
               "  return (",
               '    {',
               "      type: 'updateUser',",
@@ -69,7 +69,7 @@ const ReduxFlowTbl = () => {
         </TR>
         <TR>
           <TD><Code code={"store.dispatch()"} /></TD>
-          <TD><Code code={"store.dispatch({ type: 'updateUser' })"} language='js' /></TD>
+          <TD><Code code={"store.dispatch({ type: 'updateUser', payload: data })"} language='js' /></TD>
           <TD><Code code={'dispatch()'} /> sends actions to reducers.</TD>
         </TR>
         <TR>
@@ -80,10 +80,10 @@ const ReduxFlowTbl = () => {
               "export const userReducer = ({ type, payload }) => {",
               "  switch (type) {",
               "    case 'updateUser':",
-              "      // modify state code here then",
+              "      // create new state code here then",
               "      return newState",
               "    case 'delete':",
-              "      // modify state code here then",
+              "      // create new state code here then",
               "      return newState",
               "    default:",
               "      return state",
@@ -92,10 +92,10 @@ const ReduxFlowTbl = () => {
             ]}
               />
           </TD>
-          <TD>Reducers are the only part of your code that can (should) modify state. Reducers get passed state. A reducer will modify state if the action is on it needs to act on. If it does not want to modify the state it must return state or state will become null. Reducers must be 'pure' functions</TD>
+          <TD>Reducers are the only part of your code that can (should) change state. Reducers get passed state. A reducer can change state or return the existing state. Reducers must be 'pure' functions. <b>Do not mutate state. Return a new object.</b></TD>
         </TR>
         <TR>
-          <TD>Store / State</TD>
+          <TD>State</TD>
           <TD><Pre
             language='js'
             code={[
